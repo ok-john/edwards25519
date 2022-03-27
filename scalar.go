@@ -183,7 +183,7 @@ func (s *Scalar) Bytes() []byte {
 func (s *Scalar) bytes(out *[32]byte) []byte {
 	var limbs fiat_sc255_non_montgomery_domain_field_element
 	fiat_sc255_from_montgomery(&limbs, &s.s)
-	fiat_sc255_to_bytes(out, (*[4]uint64)(&limbs))
+	fiat_sc255_to_bytes(out, &limbs)
 	return out[:]
 }
 
